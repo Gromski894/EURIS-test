@@ -1,0 +1,9 @@
+C:\Users\krist\Downloads\wetransfer-fda91d\EURISTest_vs2015_EN\EURISTest_vs2015_EN\EURIS.Entities\bin\Debug\EURIS.Entities.dll.config
+C:\Users\krist\Downloads\wetransfer-fda91d\EURISTest_vs2015_EN\EURISTest_vs2015_EN\EURIS.Entities\bin\Debug\EURIS.Entities.dll
+C:\Users\krist\Downloads\wetransfer-fda91d\EURISTest_vs2015_EN\EURISTest_vs2015_EN\EURIS.Entities\bin\Debug\EURIS.Entities.pdb
+C:\Users\krist\Downloads\wetransfer-fda91d\EURISTest_vs2015_EN\EURISTest_vs2015_EN\EURIS.Entities\bin\Debug\EntityFramework.dll
+C:\Users\krist\Downloads\wetransfer-fda91d\EURISTest_vs2015_EN\EURISTest_vs2015_EN\EURIS.Entities\bin\Debug\EntityFramework.xml
+C:\Users\krist\Downloads\wetransfer-fda91d\EURISTest_vs2015_EN\EURISTest_vs2015_EN\EURIS.Entities\obj\Debug\EURIS.Entities.csproj.CoreCompileInputs.cache
+C:\Users\krist\Downloads\wetransfer-fda91d\EURISTest_vs2015_EN\EURISTest_vs2015_EN\EURIS.Entities\obj\Debug\EURIS.Entities.csproj.CopyComplete
+C:\Users\krist\Downloads\wetransfer-fda91d\EURISTest_vs2015_EN\EURISTest_vs2015_EN\EURIS.Entities\obj\Debug\EURIS.Entities.dll
+C:\Users\krist\Downloads\wetransfer-fda91d\EURISTest_vs2015_EN\EURISTest_vs2015_EN\EURIS.Entities\obj\Debug\EURIS.Entities.pdb

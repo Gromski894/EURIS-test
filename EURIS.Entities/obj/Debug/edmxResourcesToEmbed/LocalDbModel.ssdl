@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LocalDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Catalog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Catalog_Products">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Catalog_Id" Type="int" Nullable="false" />
+    <Property Name="Product_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Catalog_Products_ToCatalog">
+    <End Role="Catalog" Type="Self.Catalog" Multiplicity="1" />
+    <End Role="Catalog_Products" Type="Self.Catalog_Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Catalog">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Catalog_Products">
+        <PropertyRef Name="Catalog_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Catalog_Products_ToProduct">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="Catalog_Products" Type="Self.Catalog_Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Catalog_Products">
+        <PropertyRef Name="Product_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="LocalDbModelStoreContainer">
+    <EntitySet Name="Catalog" EntityType="Self.Catalog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Catalog_Products" EntityType="Self.Catalog_Products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Catalog_Products_ToCatalog" Association="Self.FK_Catalog_Products_ToCatalog">
+      <End Role="Catalog" EntitySet="Catalog" />
+      <End Role="Catalog_Products" EntitySet="Catalog_Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Catalog_Products_ToProduct" Association="Self.FK_Catalog_Products_ToProduct">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Catalog_Products" EntitySet="Catalog_Products" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

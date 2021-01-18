@@ -1,0 +1,98 @@
+﻿@model EURIS.Entities.Catalog
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend>Catalog</legend>
+
+            @Html.HiddenFor(model => model.Id)
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Code)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Code)
+                @Html.ValidationMessageFor(model => model.Code)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Description)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Description)
+                @Html.ValidationMessageFor(model => model.Description)
+            </div>
+
+            <p>
+                <input type="submit" value="Save" />
+            </p>
+        </fieldset>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+
+
+@using (Html.BeginForm("AddProduct", "Catalog", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.Hidden("catalog_id", Model.Id)
+        @Html.Label("Product code: ") 
+        @Html.TextBox("txtProductCode")
+
+        <input type="submit" value="Add" />
+    }
+
+
+
+
+
+<table>
+    <tr>
+        <th></th>
+        <th>Id</th>
+        <th>Product</th>
+    </tr>
+
+    @foreach (var item in Model.Catalog_Products)
+    {
+        <tr>
+            <td>
+                @using (Html.BeginForm("DeleteProduct", "Catalog", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.Hidden("cp_id", item.Id)
+
+                    <input type="submit" value="Delete" />
+                }
+
+            </td>
+            <td>@item.Id</td>
+            <td>@item.Product.Code</td>
+        </tr>
+    }
+
+</table>
+
+
+
+
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
